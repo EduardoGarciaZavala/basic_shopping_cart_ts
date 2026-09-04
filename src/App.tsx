@@ -1,5 +1,4 @@
 
-import type { useState } from 'react';
 import './App.css'
 import Guitar from './components/Guitar';
 import Header from './components/Header';
@@ -8,12 +7,12 @@ import { useCart } from './hooks/useCart';
 
 function App() {
 
-  const { cart, setCart, data, addToCart, removeToCart, IsEmpty, cartTotal } = useCart();
+  const { cart, data, addToCart, removeToCart, clearCart, IsEmpty, cartTotal } = useCart();
 
   return (
     <>
 
-      <Header cart={cart} setCart={setCart} addToCart={addToCart} removeToCart={removeToCart} IsEmpty={IsEmpty} cartTotal={cartTotal}  />
+      <Header cart={cart} addToCart={addToCart} removeToCart={removeToCart} clearCart={clearCart} IsEmpty={IsEmpty} cartTotal={cartTotal} />
       <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
 

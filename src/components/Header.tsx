@@ -1,6 +1,15 @@
 
+import type { CartItem, Guitar } from "../types";
 
-export default function Header({ cart, setCart, addToCart, removeToCart, IsEmpty, cartTotal }) {
+type HeaderProps = {
+    cart: CartItem[],
+    addToCart: (product: Guitar) => void,
+    removeToCart: (product: CartItem, action: string) => void,
+    clearCart : () => void
+    IsEmpty: boolean,
+    cartTotal: number
+}
+export default function Header({ cart, addToCart, removeToCart, clearCart, IsEmpty, cartTotal }: HeaderProps) {
 
     return (
         <header className="py-5 header">
@@ -89,7 +98,7 @@ export default function Header({ cart, setCart, addToCart, removeToCart, IsEmpty
                                         <p className="text-end">Total pagar: <span className="fw-bold">${cartTotal}</span></p>
                                         <button onClick={(e => {
                                             e.preventDefault();
-                                            removeToCart({}, 'empty');
+                                            clearCart();
                                         })} className="btn btn-dark w-100 mt-3 p-2">
                                             Vaciar Carrito
                                         </button>
